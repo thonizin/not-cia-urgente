@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Localização</title>
+</head>
+
+<body>
+
+<h1>Compartilhar localização</h1>
+
+<button onclick="enviar()">
+Enviar localização
+</button>
+
+<script>
+
+function enviar(){
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+const dados = {
+latitude: pos.coords.latitude,
+longitude: pos.coords.longitude
+};
+
+fetch("COLE_SUA_URL_AQUI",{
+method:"POST",
+body:JSON.stringify(dados)
+});
+
+alert("Localização enviada!");
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
